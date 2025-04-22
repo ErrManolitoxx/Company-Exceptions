@@ -15,23 +15,24 @@ public class Company {
 
     private final String name;
     private final String cif;
-    private final Map<Apartment, String> apartmentStringMap;
+    private final Map<Apartment, String> apartmentByName;
 
     public void showDepartment() {
-        for (var department: apartmentStringMap.values()) {
+        for (var department: apartmentByName.values()) {
             log.info(department.toString());
         }
     }
 
     public List<Employee> getDepartmentEmployees(String departmentName) throws ApartmentNotFoundException {
-        return
+
+
     }
 
-    public Apartment findApartment(String name) throws ApartmentNotFoundException{
-        if (apartmentStringMap.containsKey(name)) {
-            return apartmentStringMap.get(name);
+    public String findApartment(String departmentName) throws ApartmentNotFoundException{
+        if (apartmentByName.containsKey(departmentName)) {
+            return apartmentByName.get(departmentName);
         } else {
-            return new ApartmentNotFoundException(name);
+            return new ApartmentNotFoundException(departmentName);
         }
     }
 }
